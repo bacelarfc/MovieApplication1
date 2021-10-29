@@ -205,6 +205,7 @@ public class MovieApplication implements Serializable {
                 break;
         }
     } catch (Exception e) {
+            System.out.println("Error");
         }
     }
 
