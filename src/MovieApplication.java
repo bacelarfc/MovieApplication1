@@ -10,6 +10,7 @@ public class MovieApplication implements Serializable {
     private static final String USER_FILE_NAME = "user-data.txt";
     private InformationalDatabase database;
     private User activeUser;
+    private Statistics movieHistory;
 
     public MovieApplication(InformationalDatabase iDatabase) {
         this.inputScanner = new Scanner(System.in);
@@ -17,6 +18,7 @@ public class MovieApplication implements Serializable {
         this.activeUser = new User();
         readUsersFromFile();
         iDatabase.initializeMovieList();
+        movieHistory = new Statistics();
     }
 
 
@@ -250,6 +252,7 @@ public class MovieApplication implements Serializable {
                     System.out.println(actor.toString());
                 }
                 System.out.println("..................................................");
+                //
                 return;
             } else if (userChoice == 2) {
                 System.out.println("..... ADDING THE MOVIE TO THE FAV LIST .....");
@@ -311,9 +314,11 @@ public class MovieApplication implements Serializable {
 
     public void displayAccountStatistics() {
 
+
     }
 
     public void saveMovieAsFavorite() {
+
 
     }
 
