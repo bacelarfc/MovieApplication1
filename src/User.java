@@ -9,12 +9,14 @@ public class User implements Serializable {
     private String password;
 
     private List<Movie> favMovieList;
+    private List<Statistics> movieHistory;
 
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.favMovieList = new ArrayList<>();
+        this.movieHistory = new ArrayList<>();
     }
 
     // DEFAULT constructor
