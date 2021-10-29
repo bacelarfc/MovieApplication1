@@ -169,6 +169,7 @@ public class MovieApplication implements Serializable {
         System.out.println("Press 2 for searching by production year");
         System.out.println("Press 3 for searching by an actor");
         int userChoice = inputScanner.nextInt();
+        try {
         switch (userChoice) {
             case 1:
                 searchByTitle();
@@ -183,7 +184,11 @@ public class MovieApplication implements Serializable {
                 System.out.println(" *** INVALID INPUT, RETURNING TO MAIN MENU ***");
                 break;
         }
+    } catch (Exception e) {
+        }
     }
+
+
 
 
     private void processMovieResult(ArrayList<Movie> movieArrayList) {
@@ -299,7 +304,7 @@ public class MovieApplication implements Serializable {
         InformationalDatabase database = new InformationalDatabase();
         File file = new File("database.ser");
 
-        database.initializeMovieList();
+
 
        /* FileOutputStream fos = new FileOutputStream(file);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -314,12 +319,13 @@ public class MovieApplication implements Serializable {
         ObjectInputStream ois = new ObjectInputStream(fis);
 
 
-
         InformationalDatabase iDatabase = (InformationalDatabase) ois.readObject();
         fis.close();
         ois.close();
 
         MovieApplication movieApplication = new MovieApplication(iDatabase);
+
+        iDatabase.initializeMovieList();
         movieApplication.run();
 
         }

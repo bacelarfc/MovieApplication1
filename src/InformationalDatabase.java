@@ -9,7 +9,7 @@ public class InformationalDatabase implements Serializable {
     public InformationalDatabase() {
         this.movies = new ArrayList<>();
         this.users = new ArrayList<>();
-       initializeMovieList();
+       //initializeMovieList();
     }
 
     public void addMovie(Movie movie) {
