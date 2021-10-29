@@ -59,6 +59,13 @@ public class User implements Serializable {
         this.favMovieList = favMovieList;
     }
 
+    public List<Statistics> getMovieHistory() {
+        return movieHistory;
+    }
+
+    public void setMovieHistory(List<Statistics> movieHistory) {
+        this.movieHistory = movieHistory;
+    }
 
     @Override
     public String toString() {

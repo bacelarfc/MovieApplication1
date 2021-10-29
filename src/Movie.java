@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Movie implements Serializable {
 
@@ -8,11 +9,14 @@ public class Movie implements Serializable {
     private String keyWords;
     private ArrayList<Actor> actors;
 
+
+
     public Movie(String title, int prodYear, String keyWords) {
         this.title = title;
         this.prodYear = prodYear;
         this.keyWords = keyWords;
         this.actors = new ArrayList<>();
+
     }
 
     public String getTitle() {
@@ -43,6 +47,7 @@ public class Movie implements Serializable {
         actors.add(actorToAdd);
     }
 
+
     public String getKeyWords() {
         return keyWords;
     }
@@ -50,6 +55,7 @@ public class Movie implements Serializable {
     public void setKeyWords(String keyWords) {
         this.keyWords = keyWords;
     }
+
 
     @Override
     public String toString() {

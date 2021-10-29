@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 //when to use serialize
 
@@ -232,6 +233,7 @@ public class MovieApplication implements Serializable {
 
             Movie movieChoice = null;
 
+
             for (Movie movie : movieArrayList) {
                 //if (movie.getTitle().equalsIgnoreCase(title)) {
                     movieChoice = movie;
@@ -243,6 +245,7 @@ public class MovieApplication implements Serializable {
                 System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");
                 return;
             }
+
 
             if (userChoice == 1) {
                 System.out.println("..... PLAYING A MOVIE '" + movieChoice.getTitle() + "' .....");
@@ -314,8 +317,9 @@ public class MovieApplication implements Serializable {
 
     public void displayAccountStatistics() {
 
+        }
 
-    }
+
 
     public void saveMovieAsFavorite() {
 

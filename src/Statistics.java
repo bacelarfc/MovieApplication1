@@ -1,37 +1,25 @@
+import java.lang.reflect.Array;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Statistics {
 
-    private Date playDate;
-    private ArrayList<Movie> movies;
+ private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+ private ArrayList<Movie> movieArrayList = new ArrayList<>();
 
-    public Statistics (){
-        this.playDate = playDate;
-        this.movies = new ArrayList<>();
-    }
+ public Statistics(){
 
-    public ArrayList<Movie> getMovies() {
-        return movies;
-    }
+ }
 
-    public void setMovies(ArrayList<Movie> movies) {
-        this.movies = movies;
-    }
+ public static void saveDate(){
 
-    public void setPlayDate(Date playDate) {
-        this.playDate = playDate;
-    }
+ }
 
-    public Date getPlayDate() {
-        return playDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Statistics " +
-                "Viewed on: " + playDate +
-                ", movie: " + movies;
+    public static void main(String[] args) {
+      Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        System.out.println(timestamp);
     }
 
 }

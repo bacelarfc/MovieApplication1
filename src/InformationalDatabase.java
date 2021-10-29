@@ -9,7 +9,7 @@ public class InformationalDatabase implements Serializable {
     public InformationalDatabase() {
         this.movies = new ArrayList<>();
         this.users = new ArrayList<>();
-       //initializeMovieList();
+       initializeMovieList();
     }
 
     public void addMovie(Movie movie) {
@@ -103,11 +103,4 @@ public class InformationalDatabase implements Serializable {
         return users;
     }
 
-    @Override
-    public String toString() {
-        return "InformationalDatabase{" +
-                "movies=" + movies +
-                ", users=" + users +
-                '}';
-    }
 }
