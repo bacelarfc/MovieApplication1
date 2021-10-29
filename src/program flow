@@ -1,0 +1,31 @@
+Program starts
+User sees a message that says "Welcome to the XXX application"
+They are asked a question -> are you a user? -> yes
+ Then they see a message asking for the user info
+ If --> no - then they see information to have them registered
+
+After they log in to the system:
+
+ The menu is displayed:
+    Press 1 to search for a movie
+    Press 2 to see the account statistics
+    Press 3 to save a movie as favorite
+    Press 4 to list all favorite movies
+    Press 5 to quit
+
+If user selects 1, the following is displayed:
+
+ The app prints a message, such as
+   "Search for a movie based on one of the following:
+      1. Title
+      2. Actor
+      3. Production year
+      ...
+
+      Please enter 1, 2 or 3 respectively"
+
+  Based on the user reply, the program goes forward
+  When the movie is displayed with all the required data: title, ... actors
+  The user is asked "Would you like to play the movie?" -> yes / no
+  If yes we print list of actors,
+  if not, we go back to  the menu
