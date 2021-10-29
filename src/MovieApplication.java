@@ -16,7 +16,9 @@ public class MovieApplication implements Serializable {
         this.database = iDatabase;
         this.activeUser = new User();
         readUsersFromFile();
+        iDatabase.initializeMovieList();
     }
+
 
     private String getUserFullLineInput() {
         String userInput = inputScanner.nextLine();
@@ -136,6 +138,21 @@ public class MovieApplication implements Serializable {
             System.out.println("ERROR: wrong file name or missing file!");
         }
     }
+    private void searchByKeywords() {
+        System.out.println("Input keywords: >> ");
+        String keyword = getUserFullLineInput();
+        ArrayList<Movie> resultList = new ArrayList<>();
+        for (Movie movie : database.getMovies()) {
+            if (movie.getKeyWords().contains(keyword)) {
+                resultList.add(movie);
+
+            }
+
+            processMovieResult(resultList);
+        }
+
+        System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");
+    }
 
     public void run() {
         System.out.println("----- Welcome to the MOVIE APPLICATION -----");
@@ -168,6 +185,7 @@ public class MovieApplication implements Serializable {
         System.out.println("Press 1 for searching by title");
         System.out.println("Press 2 for searching by production year");
         System.out.println("Press 3 for searching by an actor");
+        System.out.println("Press 4 to search by keywords");
         int userChoice = inputScanner.nextInt();
         try {
         switch (userChoice) {
@@ -180,6 +198,8 @@ public class MovieApplication implements Serializable {
             case 3:
                 searchByActor();
                 break;
+            case 4:
+                searchByKeywords();
             default:
                 System.out.println(" *** INVALID INPUT, RETURNING TO MAIN MENU ***");
                 break;
@@ -246,7 +266,7 @@ public class MovieApplication implements Serializable {
         System.out.println("Input a title of the movie: >> ");
         String title = getUserFullLineInput();
         for (Movie movie : database.getMovies()) {
-            if (movie.getTitle().equals(title)) {
+            if (movie.getTitle().contains(title)) {
                 ArrayList<Movie> resultList = new ArrayList<>();
                 resultList.add(movie);
                 processMovieResult(resultList);
@@ -278,7 +298,7 @@ public class MovieApplication implements Serializable {
         for (Movie movie : database.getMovies()) {
             ArrayList<Actor> actorArrayList = movie.getActors();
             for (Actor actor : actorArrayList) {
-                if (actor.getFullName().equals(actorName)) {
+                if (actor.getFullName().contains(actorName)) {
                     resultList.add(movie);
                 }
             }
