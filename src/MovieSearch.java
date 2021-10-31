@@ -32,6 +32,9 @@ public class MovieSearch {
             case 3:
                 searchByActor();
                 break;
+            case 4:
+                searchByKeywords();
+                break;
             default:
                 System.out.println(" *** INVALID INPUT, RETURNING TO MAIN MENU ***");
                 break;
@@ -122,7 +125,7 @@ public class MovieSearch {
         System.out.println("Input a title of the movie: >> ");
         String title = getUserFullLineInput();
         for (Movie movie : database.getMovies()) {
-            if (movie.getTitle().equals(title)) {
+            if (movie.getTitle().contains(title)) {
                 ArrayList<Movie> resultList = new ArrayList<>();
                 resultList.add(movie);
                 processMovieResult(resultList);
@@ -162,6 +165,23 @@ public class MovieSearch {
         processMovieResult(resultList);
 
     }
+
+    private void searchByKeywords() {
+        System.out.println("Input keywords: >> ");
+        String keyword = getUserFullLineInput();
+        ArrayList<Movie> resultList = new ArrayList<>();
+        for (Movie movie : database.getMovies()) {
+            if (movie.getKeyWords().contains(keyword)) {
+                resultList.add(movie);
+
+            }
+
+            processMovieResult(resultList);
+        }
+
+        System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");
+    }
+
 
     public void removeMovieFromFavourites() {
 
