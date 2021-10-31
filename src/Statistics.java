@@ -12,6 +12,13 @@ public class Statistics {
         //maybe a message(?
         //loop to find the movie history inside the user
         //print movie and get the title maybe also get the movie history name and the dates stuff, use the parameters there ???? ufck
+
+        System.out.println();
+
+        for(MovieHistory movieRecord : activeUser.getMovieHistory()){
+            System.out.println("The movie " + movieRecord.getMovie().getTitle() + "was played on " + movieRecord.getDatePlayed()+ "by " + activeUser.getName());
+        }
+
     }
 
 

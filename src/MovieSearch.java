@@ -25,7 +25,7 @@ public class MovieSearch {
         int userChoice = inputScanner.nextInt();
         switch (userChoice) {
             case 1:
-                searchByTitle();
+               searchByTitle();
                 break;
             case 2:
                 searchByProductionYear();

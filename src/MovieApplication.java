@@ -69,33 +69,37 @@ public class MovieApplication implements Serializable {
         System.out.println("----- Welcome to the MOVIE APPLICATION -----");
         askForCredentials();
         int userMenuChoice = -1;
-        while (userMenuChoice != 6) {
-            displayMenu();
-            userMenuChoice = inputScanner.nextInt();
-            if(userMenuChoice == 0){
-                this.accountStatistics.displayAllMovies();
+        try {
+            while (userMenuChoice != 6) {
+                displayMenu();
+                userMenuChoice = inputScanner.nextInt();
+                if (userMenuChoice == 0) {
+                    this.accountStatistics.displayAllMovies();
+                }
+                if (userMenuChoice == 1) {
+                    this.movieSearch.searchForMovie();
+                }
+                if (userMenuChoice == 2) {
+                    this.accountStatistics.displayAccountStatistics(activeUser);
+                }
+                if (userMenuChoice == 3) {
+                    this.movieSearch.searchForMovie();
+                }
+                if (userMenuChoice == 4) {
+                    this.movieSearch.listAllFavoriteMovies();
+                }
+                if (userMenuChoice == 5) {
+                    this.movieSearch.removeMovieFromFavourites();
+                }
+                if (userMenuChoice == 6) {
+                    System.out.println("--- SAD TO SEE YOU GO ---");
+                    break;
+                }
             }
-            if (userMenuChoice == 1) {
-                this.movieSearch.searchForMovie();
-            }
-            if (userMenuChoice == 2) {
-                this.accountStatistics.displayAccountStatistics(activeUser);
-            }
-            if (userMenuChoice == 3) {
-                this.movieSearch.searchForMovie();
-            }
-            if (userMenuChoice == 4) {
-                this.movieSearch.listAllFavoriteMovies();
-            }
-            if(userMenuChoice == 5){
-                this.movieSearch.removeMovieFromFavourites();
-            }
-            if (userMenuChoice == 6) {
-                System.out.println("--- SAD TO SEE YOU GO ---");
-                break;
-            }
-        }
 
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
@@ -127,5 +131,4 @@ public class MovieApplication implements Serializable {
         movieApplication.run();
 
     }
-
 }

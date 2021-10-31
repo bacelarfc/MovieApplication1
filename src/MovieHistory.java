@@ -28,7 +28,7 @@ public class MovieHistory {
         this.datePlayed = datePlayed;
     }
 
-    public User getUserPlaying() {
+    public User getUserPlaying(User activeUser) {
         return userPlaying;
     }
 
