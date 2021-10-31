@@ -35,4 +35,13 @@ public class MovieHistory {
     public void setUserPlaying(User userPlaying) {
         this.userPlaying = userPlaying;
     }
+
+    @Override
+    public String toString() {
+        return "MovieHistory{" +
+                "movie=" + movie +
+                ", datePlayed=" + datePlayed +
+                ", userPlaying=" + userPlaying +
+                '}';
+    }
 }
