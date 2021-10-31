@@ -182,7 +182,9 @@ public class MovieSearch {
 
         System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");
     }
-
+    //a loop to run through the fav inside the user
+    // check if movie its there inside
+    //
 
     public void removeMovieFromFavourites(Movie movie) {
         for (Movie favMovies : activeUser.getFavMovieList()) {

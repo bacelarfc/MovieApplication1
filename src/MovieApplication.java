@@ -9,7 +9,7 @@ public class MovieApplication implements Serializable {
 
     private Scanner inputScanner;
     private static final String USER_FILE_NAME = "user-data.txt";
-    //private static final String USER_MOVIE_LIST_FILE_NAME = "user-movie-data.txt";
+    private static final String USER_MOVIE_LIST_FILE_NAME = "user-movie-data.txt";
     private InformationalDatabase database;
     private User activeUser;
     private UserLoginRegistration userLoginRegistration;
@@ -40,10 +40,9 @@ public class MovieApplication implements Serializable {
         System.out.println("Press 0 to list all movies in the application");
         System.out.println("Press 1 to search for a movie");
         System.out.println("Press 2 to see the account statistics");
-        System.out.println("Press 3 to save a movie as favorite");
-        System.out.println("Press 4 to list all favorite movies");
-        System.out.println("Press 5 to remove a movie from your favourite list");
-        System.out.println("Press 6 to quit");
+        System.out.println("Press 3 to list all favorite movies");
+        System.out.println("Press 4 to remove a movie from your favourite list");
+        System.out.println("Press 5 to quit");
         System.out.println("---------------------");
     }
 
@@ -70,7 +69,7 @@ public class MovieApplication implements Serializable {
         askForCredentials();
         int userMenuChoice = -1;
         try {
-            while (userMenuChoice != 6) {
+            while (userMenuChoice != 5) {
                 displayMenu();
                 userMenuChoice = inputScanner.nextInt();
                 if (userMenuChoice == 0) {
@@ -83,18 +82,18 @@ public class MovieApplication implements Serializable {
                     this.accountStatistics.displayAccountStatistics(activeUser);
                 }
                 if (userMenuChoice == 3) {
-                    this.movieSearch.searchForMovie();
-                }
-                if (userMenuChoice == 4) {
                     this.movieSearch.listAllFavoriteMovies();
                 }
-                if (userMenuChoice == 5) {
+                if (userMenuChoice == 4) {
                     //Saint Christian helpppppp
-                    this.movieSearch.removeMovieFromFavourites();
+                   // this.movieSearch.removeMovieFromFavourites();
                 }
-                if (userMenuChoice == 6) {
+                if (userMenuChoice == 5) {
                     System.out.println("--- SAD TO SEE YOU GO ---");
                     break;
+                }
+                else {
+                    System.out.println("Invalid input, choose again from menu options Dummy: \n");
                 }
             }
 

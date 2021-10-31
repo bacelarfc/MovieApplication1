@@ -68,7 +68,8 @@ public class UserLoginRegistration {
     public void readUsersFromFile(String USER_FILE_NAME) {
         try {
             File file = new File(USER_FILE_NAME);
-            if (file.exists()) {
+           if (file.exists())
+            {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
                 String line = "";
                 while ((line = bufferedReader.readLine()) != null) {
