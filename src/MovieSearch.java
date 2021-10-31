@@ -21,6 +21,7 @@ public class MovieSearch {
         System.out.println("Press 1 for searching by title");
         System.out.println("Press 2 for searching by production year");
         System.out.println("Press 3 for searching by an actor");
+        System.out.println("Press 4 to search by keyword");
         int userChoice = inputScanner.nextInt();
         switch (userChoice) {
             case 1:
