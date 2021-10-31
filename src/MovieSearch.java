@@ -184,7 +184,14 @@ public class MovieSearch {
     }
 
 
-    public void removeMovieFromFavourites() {
+    public void removeMovieFromFavourites(Movie movie) {
+        for (Movie favMovies : activeUser.getFavMovieList()) {
+            if (favMovies.getTitle().equalsIgnoreCase(movie.getTitle())) {
+                System.out.println(" --- THE MOVIE '" + movie.getTitle() + "WILL BE REMOVED FROM YOUR FAVOURITE LIST ---");
+                return;
+            }
+        }
+        activeUser.getFavMovieList().remove(movie);
 
     }
 }

@@ -89,6 +89,7 @@ public class MovieApplication implements Serializable {
                     this.movieSearch.listAllFavoriteMovies();
                 }
                 if (userMenuChoice == 5) {
+                    //Saint Christian helpppppp
                     this.movieSearch.removeMovieFromFavourites();
                 }
                 if (userMenuChoice == 6) {

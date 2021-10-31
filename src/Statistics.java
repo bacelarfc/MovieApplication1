@@ -1,4 +1,5 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+
+import java.io.*;
 
 public class Statistics {
 
@@ -8,8 +9,40 @@ public class Statistics {
         this.iDatabase = database;
     }
 
+    public void movieWriteToFile (Movie movie, String movieHistory) {
+        try {
+            File file = new File("movieHistory.txt");
+            FileWriter movieHistoryWriter = new FileWriter(movieHistory, true);
+            String movieInfo = movie.getTitle() + ", " + movie.getActors() +"\n";
+            movieHistoryWriter.write(movieInfo);
+            movieHistoryWriter.close();
 
-    public void displayAccountStatistics(User activeUser) {
+
+        } catch (IOException e) {
+            System.out.println("ERROR - file not found");
+        }
+
+    }
+     //Ask Saint Christian.
+    /*public void movieReadFromFile(String movieHistory) {
+        try{
+            File file = new File(movieHistory);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = " ";
+            while ((line = br.readLine()) != null){
+
+
+
+            }
+
+        }catch (Exception e){
+
+        }
+
+    }*/
+
+
+        public void displayAccountStatistics(User activeUser) {
 
         //maybe a message(?
         //loop to find the movie history inside the user
@@ -18,6 +51,7 @@ public class Statistics {
         System.out.println();
         System.out.println("-----------------------");
         System.out.println("M O V I E   H I S T O R Y");
+
         for(MovieHistory movieRecord : activeUser.getMovieHistory()){
 
             System.out.println("The movie " + movieRecord.getMovie().getTitle() + " was played on " + movieRecord.getDatePlayed()+ " by " + activeUser.getName());
