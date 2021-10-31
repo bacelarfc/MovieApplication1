@@ -9,7 +9,7 @@ public class User implements Serializable {
     private String password;
 
     private List<Movie> favMovieList;
-    private List<Statistics> movieHistory;
+    private List<MovieHistory> movieHistory;
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -59,11 +59,11 @@ public class User implements Serializable {
         this.favMovieList = favMovieList;
     }
 
-    public List<Statistics> getMovieHistory() {
+    public List<MovieHistory> getMovieHistory() {
         return movieHistory;
     }
 
-    public void setMovieHistory(List<Statistics> movieHistory) {
+    public void setMovieHistory(List<MovieHistory> movieHistory) {
         this.movieHistory = movieHistory;
     }
 

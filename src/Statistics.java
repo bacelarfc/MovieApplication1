@@ -1,25 +1,28 @@
-import java.lang.reflect.Array;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Statistics {
 
- private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
- private ArrayList<Movie> movieArrayList = new ArrayList<>();
+    private InformationalDatabase iDatabase;
 
- public Statistics(){
-
- }
-
- public static void saveDate(){
-
- }
-
-    public static void main(String[] args) {
-      Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        System.out.println(timestamp);
+    public Statistics(InformationalDatabase database){
+        this.iDatabase = database;
     }
+
+
+    public void displayAccountStatistics(User activeUser) {
+
+        //maybe a message(?
+        //loop to find the movie history inside the user
+        //print movie and get the title maybe also get the movie history name and the dates stuff, use the parameters there ???? ufck
+    }
+
+
+    public void displayAllMovies() {
+        System.out.println("----- SELECTING ALL MOVIES FROM THE DATABASE -----");
+        for(Movie movie : iDatabase.getMovies()){
+            System.out.println(movie);
+            System.out.println("-----");
+        }
+        System.out.println("--------------------");
+    }
+
 
 }
