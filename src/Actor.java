@@ -2,6 +2,9 @@ import java.io.Serializable;
 
 public class Actor implements Serializable {
 
+    //Actor class:
+    // 2 parameters: name and role
+
     private String fullName;
     private String role;
 

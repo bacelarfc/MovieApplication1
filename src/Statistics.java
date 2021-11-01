@@ -2,6 +2,8 @@
 import java.io.*;
 
 public class Statistics {
+//to know when user has seen a movie
+    //has access to the database to check
 
     private InformationalDatabase iDatabase;
 

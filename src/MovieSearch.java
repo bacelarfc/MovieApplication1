@@ -10,6 +10,7 @@ public class MovieSearch {
     private Scanner inputScanner;
     private User activeUser;
 
+    //parameters to:
     public MovieSearch(InformationalDatabase IDatabase, Scanner inputScanner, User activeUser) {
         this.database = IDatabase;
         this.inputScanner = inputScanner;
@@ -25,7 +26,7 @@ public class MovieSearch {
         int userChoice = inputScanner.nextInt();
         switch (userChoice) {
             case 1:
-               searchByTitle();
+                searchByTitle();
                 break;
             case 2:
                 searchByProductionYear();
@@ -42,6 +43,7 @@ public class MovieSearch {
         }
     }
 
+//a method to process the movie result from the serach, pass the arraylist of movies
 
     private void processMovieResult(ArrayList<Movie> movieArrayList) {
         System.out.println(" --- SEARCH RETURNED " + movieArrayList.size() + " RESULT: --- ");
@@ -75,8 +77,8 @@ public class MovieSearch {
             if (userChoice == 1) {
                 //relate the user to access the movie history
                 //add a date to it. (?
+                //save the info to user file(?
                 activeUser.getMovieHistory().add(new MovieHistory(movieChoice, Date.from(Instant.now()), activeUser));
-
                 System.out.println("..... PLAYING A MOVIE '" + movieChoice.getTitle() + "' .....");
                 ArrayList<Actor> actorArrayList = movieChoice.getActors();
                 System.out.println("................... ACTORS .......................");
@@ -182,18 +184,26 @@ public class MovieSearch {
 
         System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");
     }
-    //a loop to run through the fav inside the user
-    // check if movie its there inside
+
+    //check which movie user wants to delete - get input and save in a var
+    //loop to find mov list inside user
+    // check if movie its there inside and compare move name with the input
+    //use activeuser favorite list. remove the movie matched
     //
 
-    public void removeMovieFromFavourites(Movie movie) {
-        for (Movie favMovies : activeUser.getFavMovieList()) {
-            if (favMovies.getTitle().equalsIgnoreCase(movie.getTitle())) {
-                System.out.println(" --- THE MOVIE '" + movie.getTitle() + "WILL BE REMOVED FROM YOUR FAVOURITE LIST ---");
+    public void removeMovieFromFavourites() {
+        System.out.println("Input a title of the movie that you would like removed from your fav list: ");
+        String movieName = inputScanner.nextLine();
+        movieName = inputScanner.nextLine();
+        System.out.println(" --- SEARCHING FOR " + movieName + " IN YOUR FAVOURITE LIST..... --- ");
+        for (Movie movie : activeUser.getFavMovieList()) {
+            if (movie.toString().equalsIgnoreCase(movieName)) {
+                activeUser.getFavMovieList().remove(movie);
+                System.out.println(" --- ... REMOVING A MOVIE FROM THE LIST..... --- ");
                 return;
+                //break out the loop after - could have used a boolean variable, and set it to false instead
             }
         }
-        activeUser.getFavMovieList().remove(movie);
-
+        System.out.println(" --- THE SEARCH DIDN'T RETURN ANY RESULT, TRY AGAIN LATER --- ");
     }
 }

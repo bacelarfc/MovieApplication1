@@ -4,11 +4,14 @@ import java.util.List;
 
 public class User implements Serializable {
 
+    //User class has:
+
     private String name;
     private String email;
     private String password;
-
+    //associate a favMovieList that contains movie objects here
     private List<Movie> favMovieList;
+    //associate movieHistory that its contained inside MovieHistory class, so each user has a movie history record.
     private List<MovieHistory> movieHistory;
 
     public User(String name, String email, String password) {

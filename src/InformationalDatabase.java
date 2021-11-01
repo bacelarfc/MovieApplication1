@@ -3,9 +3,11 @@ import java.util.ArrayList;
 
 public class InformationalDatabase implements Serializable {
 
+    //has a array of movie objects and user objects
     private ArrayList<Movie> movies;
     private ArrayList<User> users;
 
+    //call the initilize movie list inside so it can get initilized by the contructor
     public InformationalDatabase() {
         this.movies = new ArrayList<>();
         this.users = new ArrayList<>();

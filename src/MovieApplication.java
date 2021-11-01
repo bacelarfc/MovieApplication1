@@ -5,9 +5,12 @@ import java.util.Scanner;
 
 public class MovieApplication implements Serializable {
 
-    //references
+    //making references
 
     private Scanner inputScanner;
+    //new trick
+    //static final:
+    //final: it's a "constant" value which is same across all the class instances and cannot be modified.
     private static final String USER_FILE_NAME = "user-data.txt";
     private static final String USER_MOVIE_LIST_FILE_NAME = "user-movie-data.txt";
     private InformationalDatabase database;
@@ -69,6 +72,9 @@ public class MovieApplication implements Serializable {
         askForCredentials();
         int userMenuChoice = -1;
         try {
+            //CHECK CHOICE AND LOGIC (?
+            //why does it return to the main menu
+            //when it gets to 5 should not go into the loop(?
             while (userMenuChoice != 5) {
                 displayMenu();
                 userMenuChoice = inputScanner.nextInt();
@@ -85,8 +91,7 @@ public class MovieApplication implements Serializable {
                     this.movieSearch.listAllFavoriteMovies();
                 }
                 if (userMenuChoice == 4) {
-                    //Saint Christian helpppppp
-                   // this.movieSearch.removeMovieFromFavourites();
+                   this.movieSearch.removeMovieFromFavourites();
                 }
                 if (userMenuChoice == 5) {
                     System.out.println("--- SAD TO SEE YOU GO ---");
