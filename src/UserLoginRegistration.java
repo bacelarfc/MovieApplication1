@@ -1,10 +1,7 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.Scanner;
 
-public class UserLoginRegistration {
+public class UserLoginRegistration implements Serializable {
     //associate the movie database (?)
 
     private InformationalDatabase database;

@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Date;
 
-public class MovieHistory {
+public class MovieHistory implements Serializable {
 
     private Movie movie;
     private Date datePlayed;

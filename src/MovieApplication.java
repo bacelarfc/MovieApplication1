@@ -28,7 +28,7 @@ public class MovieApplication implements Serializable {
         this.activeUser = new User();
         this.userLoginRegistration = new UserLoginRegistration(database);
         this.userLoginRegistration.readUsersFromFile(USER_FILE_NAME);
-        iDatabase.initializeMovieList();
+        //iDatabase.initializeMovieList();
 //        this.movieSearch = new MovieSearch(database, inputScanner, activeUser);
 //        this.accountStatistics = new Statistics(database);
     }
@@ -112,19 +112,27 @@ public class MovieApplication implements Serializable {
         }
     }
 
+    //File file = new File("databaseFile.ser");
+   /* String fileName = "file.ser";
+    public final void writeObjectToFile(InformationalDatabase IDatabase) throws IOException {
+
+        try {
+
+            FileOutputStream fos = new FileOutputStream(fileName);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(IDatabase);
+            oos.flush();
+            fos.close();
+            oos.close();
+        } catch (IOException e) {
+            System.out.println("COULDN'T READ FROM FILE");
+        }
+    }*/
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         InformationalDatabase database = new InformationalDatabase();
         File file = new File("databaseFile.ser");
-/*
 
-        FileOutputStream fos = new FileOutputStream(file);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(database);
-        oos.flush();
-        fos.close();
-        oos.close();
-
-*/
 
         //deserialize
         FileInputStream fis = new FileInputStream(file);
@@ -137,7 +145,7 @@ public class MovieApplication implements Serializable {
 
         MovieApplication movieApplication = new MovieApplication(iDatabase);
 
-        iDatabase.initializeMovieList();
+
         movieApplication.run();
 
     }

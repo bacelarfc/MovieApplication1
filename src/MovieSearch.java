@@ -93,7 +93,7 @@ public class MovieSearch {
                 System.out.println("..... ADDING THE MOVIE TO THE FAV LIST .....");
                 saveMovieAsFavorite(movieChoice);
                 // add this info to a file ?
-            } else /*if (userChoice == 3)*/ {
+            } else if (userChoice == 3) {
                 movieApplication.mainMenu();
                 return;
 
