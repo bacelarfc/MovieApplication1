@@ -12,14 +12,15 @@ public class MovieApplication implements Serializable {
     //static final:
     //final: it's a "constant" value which is same across all the class instances and cannot be modified.
     private static final String USER_FILE_NAME = "user-data.txt";
-    private static final String USER_MOVIE_LIST_FILE_NAME = "user-movie-data.txt";
+   //maybe
+   //private static final String USER_MOVIE_LIST_FILE_NAME = "user-movie-data.txt";
     private InformationalDatabase database;
     private User activeUser;
     private UserLoginRegistration userLoginRegistration;
     private MovieSearch movieSearch;
     private Statistics accountStatistics;
 
-    //instantiating the objects inside the constructor
+    //instantiating the objects inside the constructor so we dont need to create an object every time
 
     public MovieApplication(InformationalDatabase iDatabase) {
         this.inputScanner = new Scanner(System.in);

@@ -9,12 +9,14 @@ public class MovieSearch {
     private InformationalDatabase database;
     private Scanner inputScanner;
     private User activeUser;
+    private MovieApplication movieApplication;
 
     //parameters to:
     public MovieSearch(InformationalDatabase IDatabase, Scanner inputScanner, User activeUser) {
         this.database = IDatabase;
         this.inputScanner = inputScanner;
         this.activeUser = activeUser;
+        this.movieApplication = movieApplication;
     }
 
     public void searchForMovie() {
@@ -68,12 +70,10 @@ public class MovieSearch {
                     movieChoice = movie;
                 }
             }
-
             if (movieChoice == null) {
                 System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");
                 return;
             }
-
             if (userChoice == 1) {
                 //relate the user to access the movie history
                 //add a date to it. (?
@@ -92,8 +92,8 @@ public class MovieSearch {
                 saveMovieAsFavorite(movieChoice);
                 // add this info to a file ?
             } else if (userChoice == 3) {
-                listAllFavoriteMovies();
-                return;
+                movieApplication.displayMenu();
+              return;
             }
         }
 
@@ -188,8 +188,7 @@ public class MovieSearch {
     //check which movie user wants to delete - get input and save in a var
     //loop to find mov list inside user
     // check if movie its there inside and compare move name with the input
-    //use activeuser favorite list. remove the movie matched
-    //
+    //use active user favorite list. remove the movie matched
 
     public void removeMovieFromFavourites() {
         System.out.println("Input a title of the movie that you would like removed from your fav list: ");
