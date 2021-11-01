@@ -11,14 +11,17 @@ public class Statistics implements Serializable {
         this.iDatabase = database;
     }
 
-    public void movieWriteToFile (Movie movie, String movieHistory) {
+    //This is a bit mess, I thought I can fix it with some help but not yet :'|
+    public void saveMovieHistory (User user) {
         try {
-            File file = new File("movieHistory.txt");
-            FileWriter movieHistoryWriter = new FileWriter(movieHistory, true);
-            String movieInfo = movie.getTitle() + ", " + movie.getActors() +"\n";
-            movieHistoryWriter.write(movieInfo);
+            FileWriter movieHistoryWriter = new FileWriter("movie-History-" + user.getName() + ".txt", false);
+            for (int i = 0; i < user.getMovieHistory().size(); i++) {
+                
+            }
+           user.getMovieHistory().get(0).getMovie().getTitle();
+           // String movieInfo = movie.getTitle() + ", " + movie.getActors() +"\n";
+           // movieHistoryWriter.write(user.getMovieHistory());
             movieHistoryWriter.close();
-
 
         } catch (IOException e) {
             System.out.println("ERROR - file not found");

@@ -33,7 +33,7 @@ public class MovieApplication implements Serializable {
 //        this.accountStatistics = new Statistics(database);
     }
 
-    //suggested but dont understand yet
+    //suggested but don't understand yet
     private void intializeUserRelatedObjects(){
         this.movieSearch = new MovieSearch(database, inputScanner, activeUser);
         this.accountStatistics = new Statistics(database);

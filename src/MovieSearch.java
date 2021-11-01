@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-public class MovieSearch {
+public class
+MovieSearch {
 
     private InformationalDatabase database;
     private Scanner inputScanner;
@@ -45,7 +46,7 @@ public class MovieSearch {
         }
     }
 
-//a method to process the movie result from the serach, pass the arraylist of movies
+//a method to process the movie result from the search, pass the arraylist of movies
 
     private void processMovieResult(ArrayList<Movie> movieArrayList) {
         System.out.println(" --- SEARCH RETURNED " + movieArrayList.size() + " RESULT: --- ");

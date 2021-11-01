@@ -11,7 +11,7 @@ public class User implements Serializable {
     private String password;
     //associate a favMovieList that contains movie objects here
     private List<Movie> favMovieList;
-    //associate movieHistory that its contained inside MovieHistory class, so each user has a movie history record.
+    //associate movieHistory that it's contained inside MovieHistory class, so each user has a movie history record.
     private List<MovieHistory> movieHistory;
 
     public User(String name, String email, String password) {
