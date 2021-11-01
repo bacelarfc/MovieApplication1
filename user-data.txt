@@ -1,1 +1,2 @@
 maria,maria@gmail.com,mariaPass
+mubrick,brickbrock,brick123

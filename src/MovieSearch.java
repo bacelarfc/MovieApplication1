@@ -54,6 +54,8 @@ public class MovieSearch {
             System.out.println("---------------------");
         }
 
+
+
         if (movieArrayList.size() > 0) {
             System.out.println("Press 1 to play a movie");
             System.out.println("Press 2 to add movie to favourites");
@@ -91,9 +93,10 @@ public class MovieSearch {
                 System.out.println("..... ADDING THE MOVIE TO THE FAV LIST .....");
                 saveMovieAsFavorite(movieChoice);
                 // add this info to a file ?
-            } else if (userChoice == 3) {
-                movieApplication.displayMenu();
-              return;
+            } else /*if (userChoice == 3)*/ {
+                movieApplication.mainMenu();
+                return;
+
             }
         }
 

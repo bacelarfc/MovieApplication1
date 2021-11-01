@@ -71,7 +71,11 @@ public class MovieApplication implements Serializable {
     public void run() {
         System.out.println("----- Welcome to the MOVIE APPLICATION -----");
         askForCredentials();
-        int userMenuChoice = -1;
+        mainMenu();
+
+    }
+     public void mainMenu(){
+    int userMenuChoice = -1;
         try {
             //CHECK CHOICE AND LOGIC (?
             //why does it return to the main menu
