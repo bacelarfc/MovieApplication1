@@ -90,7 +90,6 @@ public class InformationalDatabase implements Serializable {
         movies.add(movie10);
 
     }
-
     // Method to add users to a userlist, adding the user
     // will happen upon registration or by reading all users from an existing file (user-data.txt)
     public void addUser(User user) {

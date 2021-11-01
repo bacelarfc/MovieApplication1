@@ -16,6 +16,8 @@ public class UserLoginRegistration implements Serializable {
     //Create a new user object with the information collected
     //Check if user its unique by using the boolean method, set it to true so we can verify if name already exists
     //if it doesnt exist I call the method saveUser and input a new user
+
+
     public User registerNewUser(Scanner inputScanner, String fileName) {
         System.out.print("Please input your username: --> ");
         String name = inputScanner.nextLine();
