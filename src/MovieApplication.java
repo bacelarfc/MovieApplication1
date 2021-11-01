@@ -50,7 +50,10 @@ public class MovieApplication implements Serializable {
         System.out.println("---------------------");
     }
 
-
+    //asks for registration, if yes user is asked to login, if no user is asked to register
+    //If String variable userChoice equals y: it will loop database which contains user ArrayList,
+    // and check if username and password equals to what the active user input.
+    //If String variable userChoice
     public void askForCredentials() {
         System.out.println("Are you a registered user or not (Y/N) ?");
         String userChoice = inputScanner.next();
@@ -67,13 +70,15 @@ public class MovieApplication implements Serializable {
         intializeUserRelatedObjects();
     }
 
-
+   //this runs our application, it calls on the methods askForCredentials and mainMenu
     public void run() {
         System.out.println("----- Welcome to the MOVIE APPLICATION -----");
         askForCredentials();
         mainMenu();
 
     }
+
+    //this method uses a while loop that calls on methods related to the displayed option
      public void mainMenu(){
     int userMenuChoice = -1;
         try {
@@ -102,8 +107,8 @@ public class MovieApplication implements Serializable {
                     System.out.println("--- SAD TO SEE YOU GO ---");
                     break;
                 }
-                else {
-                    System.out.println("Invalid input, choose again from menu options Dummy: \n");
+                else if (userMenuChoice > 5) {
+                    System.out.println("Invalid input, please try again: \n");
                 }
             }
 
