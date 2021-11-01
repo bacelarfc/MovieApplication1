@@ -20,7 +20,7 @@ public class UserLoginRegistration {
     //Check if user its unique by using the boolean method, set it to true so we can verify if name already exists
     //if it doesnt exist I call the method saveUser and input a new user
     public User registerNewUser(Scanner inputScanner, String fileName) {
-        System.out.print("Please input your name: --> ");
+        System.out.print("Please input your username: --> ");
         String name = inputScanner.nextLine();
         name = inputScanner.nextLine();
         System.out.println();
@@ -31,7 +31,7 @@ public class UserLoginRegistration {
         System.out.println();
         User user = new User(name, email, password);
         if (checkIfUniqueUser(name) == true) {
-            System.out.println(" --- SORRY, THIS EMAIL IS ALREADY TAKEN! --- ");
+            System.out.println(" --- SORRY, THIS USERNAME IS ALREADY TAKEN! --- ");
         } else {
             //call save user method and its parameters
             //use the database and add the user to be related to it
@@ -46,14 +46,14 @@ public class UserLoginRegistration {
     //then create a boolean variable for find an user and set it to false
     //loop to get users saved into the database, set the active user to user and set it to true to end
     public User login(Scanner inputScanner, User activeUser) {
-        System.out.print("Please input your email: --> ");
-        String email = inputScanner.next();
+        System.out.print("Please input your username: --> ");
+        String name = inputScanner.next();
         System.out.print("Please input your password: --> ");
         String password = inputScanner.next();
         System.out.println();
         boolean foundUser = false;
         for (User user : database.getUsers()) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+            if (user.getName().equals(name) && user.getPassword().equals(password)) {
                 activeUser = user;
                 foundUser = true;
             }
@@ -61,7 +61,7 @@ public class UserLoginRegistration {
         if (foundUser == true) {
             System.out.println(" --- GLAD TO SEE YOU BACK, " + activeUser.getName() + " ---\n");
         } else {
-            System.out.println(" --- EMAIL OR PASSWORD DO NOT MATCH, TRY AGAIN ---");
+            System.out.println(" --- USERNAME OR PASSWORD NOT FOUND, PLEASE TRY AGAIN ---");
             login(inputScanner, activeUser);
         }
         return activeUser;
