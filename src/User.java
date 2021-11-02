@@ -36,7 +36,7 @@ public class User implements Serializable {
     }
 
     //String fileName = "file.ser"; - do we need this?
-    public User writeObjectToFile() throws IOException {
+    public static long writeObjectToFile() throws IOException {
         File file = new File("databaseFile.ser");
         try {
             InformationalDatabase database = new InformationalDatabase();
