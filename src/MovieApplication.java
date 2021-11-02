@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -18,12 +17,12 @@ public class MovieApplication implements Serializable {
 
     //instantiating the objects inside the constructor so we dont need to create an object every time
 
-    public MovieApplication(InformationalDatabase iDatabase) {
+    public MovieApplication(InformationalDatabase iDatabase) throws IOException {
         this.inputScanner = new Scanner(System.in);
         this.database = iDatabase;
         this.activeUser = new User();
         this.userLoginRegistration = new UserLoginRegistration(database);
-        this.userLoginRegistration.readUsersFromFile(USER_FILE_NAME);
+        //this.userLoginRegistration.readUsersFromFile(USER_FILE_NAME);
 
         //iDatabase.initializeMovieList();
 //
@@ -49,13 +48,13 @@ public class MovieApplication implements Serializable {
     }
 
     //asks for registration, if yes user is asked to login, if no user is asked to register
-    //If String variable userChoice equals y: it will loop database which contains user ArrayList,
+    //If String variable userChoice equals y: it calls on the method login, which will loop database which contains user ArrayList,
     // and check if username and password equals to what the active user input.
-    //If String variable userChoice
+    //If String variable userChoice equals n: it calls on the method registerNewUser which is going to ask for....
 
 
 
-    public void askForCredentials() {
+    public void askForCredentials() throws IOException {
         System.out.println("Are you a registered user or not (Y/N) ?");
         String userChoice = inputScanner.next();
         while (!userChoice.equalsIgnoreCase("Y") && !userChoice.equalsIgnoreCase("N")) {
@@ -72,7 +71,7 @@ public class MovieApplication implements Serializable {
     }
 
    //this runs our application, it calls on the methods askForCredentials and mainMenu
-    public void run() {
+    public void run() throws IOException {
         System.out.println("----- Welcome to the MOVIE APPLICATION -----");
         askForCredentials();
         mainMenu();
@@ -113,6 +112,9 @@ public class MovieApplication implements Serializable {
             System.out.println("ERROR");
         }
     }
+
+
+
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 

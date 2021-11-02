@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class InformationalDatabase implements Serializable {
 
+
     //has a array of movie objects and user objects
     private ArrayList<Movie> movies;
     private ArrayList<User> users;

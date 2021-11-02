@@ -1,4 +1,4 @@
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +33,22 @@ public class User implements Serializable {
         this.password = "";
         this.name = "";
         this.favMovieList = new ArrayList<>();
+    }
+
+    //String fileName = "file.ser"; - do we need this?
+    public User writeObjectToFile() throws IOException {
+        File file = new File("databaseFile.ser");
+        try {
+            InformationalDatabase database = new InformationalDatabase();
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(database);
+            oos.flush();
+            fos.close();
+            oos.close();
+        } catch (IOException e) {
+            System.out.println("COULDN'T READ FROM FILE");
+        } //return what? ;
     }
 
     public String getName() {

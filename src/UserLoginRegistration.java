@@ -5,10 +5,14 @@ public class UserLoginRegistration implements Serializable {
     //associate the movie database (?)
 
     private InformationalDatabase database;
+    private final User wotf;
 
-    public UserLoginRegistration(InformationalDatabase iDatabase) {
+    public UserLoginRegistration(InformationalDatabase iDatabase, User wotf) {
 
         this.database = iDatabase;
+
+
+        this.wotf = wotf;
     }
 
     //method that return User object to register new User
@@ -18,7 +22,7 @@ public class UserLoginRegistration implements Serializable {
     //if it doesn't exist I call the method saveUser and input a new user
 
 
-    public User registerNewUser(Scanner inputScanner, InformationalDatabase database) {
+    public User registerNewUser(Scanner inputScanner, InformationalDatabase database) throws IOException {
         System.out.print("Please input your username: --> ");
         String name = inputScanner.nextLine();
         name = inputScanner.nextLine();
@@ -37,6 +41,8 @@ public class UserLoginRegistration implements Serializable {
             //call save user method and its parameters
             //use the database and add the user to be related to it
             database.addUser(user);
+            wotf.writeObjectToFile();
+
         }
         return user;
     }
