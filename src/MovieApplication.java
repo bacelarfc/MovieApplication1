@@ -6,14 +6,10 @@ import java.util.Scanner;
 public class MovieApplication implements Serializable {
 
     //making references
-
     private Scanner inputScanner;
-    //new trick
-    //static final:
     //final: it's a "constant" value which is same across all the class instances and cannot be modified.
     private static final String USER_FILE_NAME = "user-data.txt";
    //maybe
-   //private static final String USER_MOVIE_LIST_FILE_NAME = "user-movie-data.txt";
     private InformationalDatabase database;
     private User activeUser;
     private UserLoginRegistration userLoginRegistration;
@@ -28,12 +24,14 @@ public class MovieApplication implements Serializable {
         this.activeUser = new User();
         this.userLoginRegistration = new UserLoginRegistration(database);
         this.userLoginRegistration.readUsersFromFile(USER_FILE_NAME);
+
         //iDatabase.initializeMovieList();
-//        this.movieSearch = new MovieSearch(database, inputScanner, activeUser);
-//        this.accountStatistics = new Statistics(database);
+//
     }
 
-    //suggested but dont understand yet
+    // This method is intended to initialize the movieSearch and Statistics objects AFTER the user
+    // enters his/hers credentials and logs into the system
+
     private void intializeUserRelatedObjects(){
         this.movieSearch = new MovieSearch(database, inputScanner, activeUser);
         this.accountStatistics = new Statistics(database);
@@ -82,9 +80,6 @@ public class MovieApplication implements Serializable {
      public void mainMenu(){
     int userMenuChoice = -1;
         try {
-            //CHECK CHOICE AND LOGIC (?
-            //why does it return to the main menu
-            //when it gets to 5 should not go into the loop(?
             while (userMenuChoice != 5) {
                 displayMenu();
                 userMenuChoice = inputScanner.nextInt();

@@ -27,7 +27,9 @@ public class UserLoginRegistration implements Serializable {
         String email = inputScanner.next();
         System.out.print("Please input your password: --> ");
         String password = inputScanner.next();
+
         System.out.println();
+
         User user = new User(name, email, password);
         if (checkIfUniqueUser(name) == false) {
             System.out.println(" --- SORRY, THIS USERNAME IS ALREADY TAKEN! --- ");

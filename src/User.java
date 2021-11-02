@@ -13,6 +13,7 @@ public class User implements Serializable {
     private List<Movie> favMovieList;
     //associate movieHistory that its contained inside MovieHistory class, so each user has a movie history record.
     private List<MovieHistory> movieHistory;
+    private List<Statistics> userStatistics;
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -20,6 +21,7 @@ public class User implements Serializable {
         this.password = password;
         this.favMovieList = new ArrayList<>();
         this.movieHistory = new ArrayList<>();
+        this.userStatistics = new ArrayList<>();
     }
 
     // DEFAULT constructor
@@ -68,6 +70,14 @@ public class User implements Serializable {
 
     public void setMovieHistory(List<MovieHistory> movieHistory) {
         this.movieHistory = movieHistory;
+    }
+
+    public List<Statistics> getUserStatistics() {
+        return userStatistics;
+    }
+
+    public void setUserStatistics(List<Statistics> userStatistics) {
+        this.userStatistics = userStatistics;
     }
 
     @Override

@@ -37,12 +37,8 @@ public class MovieHistory implements Serializable {
         this.userPlaying = userPlaying;
     }
 
-    @Override
     public String toString() {
-        return "MovieHistory{" +
-                "movie=" + movie +
-                ", datePlayed=" + datePlayed +
-                ", userPlaying=" + userPlaying +
-                '}';
+        String var10000 = this.movie.getTitle();
+        return "Title: " + var10000 + " was played on " + this.datePlayed + " by a user: /" + this.userPlaying + "/\n";
     }
 }

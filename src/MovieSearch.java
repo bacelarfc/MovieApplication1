@@ -1,5 +1,7 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -9,14 +11,14 @@ public class MovieSearch {
     private InformationalDatabase database;
     private Scanner inputScanner;
     private User activeUser;
-    private MovieApplication movieApplication;
+    private static final String MOVIE_RECORDS_FILE = "movie-records.txt";
+
 
     //parameters to:
     public MovieSearch(InformationalDatabase IDatabase, Scanner inputScanner, User activeUser) {
         this.database = IDatabase;
         this.inputScanner = inputScanner;
         this.activeUser = activeUser;
-        this.movieApplication = movieApplication;
     }
 
     public void searchForMovie() {
@@ -45,27 +47,29 @@ public class MovieSearch {
         }
     }
 
-//a method to process the movie result from the serach, pass the arraylist of movies
 
+    // Passing an argument of list of movies that was returned as a result of some search (either by keyword, or by title, or by prod year)
     private void processMovieResult(ArrayList<Movie> movieArrayList) {
+        // The search result returned line is going to count how many movies were found and it returns you that numbers below
         System.out.println(" --- SEARCH RETURNED " + movieArrayList.size() + " RESULT: --- ");
         for (Movie movie : movieArrayList) {
             System.out.println(movie.toString());
             System.out.println("---------------------");
         }
-
-
-
         if (movieArrayList.size() > 0) {
             System.out.println("Press 1 to play a movie");
             System.out.println("Press 2 to add movie to favourites");
             System.out.println("Press 3 to return to main menu");
 
             int userChoice = inputScanner.nextInt();
+
+            if (userChoice == 3) {
+                return;
+            }
+            Movie movieChoice = null;
+
             System.out.println("Input the title of the movie >> ");
             String title = getUserFullLineInput();
-
-            Movie movieChoice = null;
 
             for (Movie movie : movieArrayList) {
                 if (movie.getTitle().equalsIgnoreCase(title)) {
@@ -80,7 +84,15 @@ public class MovieSearch {
                 //relate the user to access the movie history
                 //add a date to it. (?
                 //save the info to user file(?
-                activeUser.getMovieHistory().add(new MovieHistory(movieChoice, Date.from(Instant.now()), activeUser));
+                //activeUser.getMovieHistory().add(new MovieHistory(movieChoice, Date.from(Instant.now()), activeUser));
+
+                MovieHistory history = new MovieHistory(movieChoice, Date.from(Instant.now()), activeUser);
+                activeUser.getMovieHistory().add(history);
+                try {
+                   saveMovieHistoryToFile(history);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 System.out.println("..... PLAYING A MOVIE '" + movieChoice.getTitle() + "' .....");
                 ArrayList<Actor> actorArrayList = movieChoice.getActors();
                 System.out.println("................... ACTORS .......................");
@@ -92,17 +104,16 @@ public class MovieSearch {
             } else if (userChoice == 2) {
                 System.out.println("..... ADDING THE MOVIE TO THE FAV LIST .....");
                 saveMovieAsFavorite(movieChoice);
-                // add this info to a file ?
-            } else if (userChoice == 3) {
-                movieApplication.mainMenu();
-                return;
-
             }
         }
-
     }
 
-
+    public void saveMovieHistoryToFile(MovieHistory movieRecord) throws IOException {
+        File file = new File(MOVIE_RECORDS_FILE);
+        FileWriter fileWriter = new FileWriter(file, true);
+        fileWriter.write(movieRecord.toString());
+        fileWriter.close();
+    }
     public void saveMovieAsFavorite(Movie movie) {
         for (Movie favMovies : activeUser.getFavMovieList()) {
             if (favMovies.getTitle().equalsIgnoreCase(movie.getTitle())) {
