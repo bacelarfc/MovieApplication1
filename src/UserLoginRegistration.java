@@ -18,7 +18,7 @@ public class UserLoginRegistration implements Serializable {
     //if it doesn't exist I call the method saveUser and input a new user
 
 
-    public User registerNewUser(Scanner inputScanner, InformationalDatabase iDatase) {
+    public User registerNewUser(Scanner inputScanner, InformationalDatabase database) {
         System.out.print("Please input your username: --> ");
         String name = inputScanner.nextLine();
         name = inputScanner.nextLine();
@@ -37,7 +37,6 @@ public class UserLoginRegistration implements Serializable {
             //call save user method and its parameters
             //use the database and add the user to be related to it
             database.addUser(user);
-            iDatase.addUser(user);
         }
         return user;
     }

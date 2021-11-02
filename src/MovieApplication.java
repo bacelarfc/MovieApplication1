@@ -66,7 +66,7 @@ public class MovieApplication implements Serializable {
         if (userChoice.equalsIgnoreCase("y")) {
             this.activeUser = this.userLoginRegistration.login(inputScanner, activeUser);
         } else if (userChoice.equalsIgnoreCase("n")) {
-            this.activeUser = this.userLoginRegistration.registerNewUser(inputScanner, USER_FILE_NAME);
+            this.activeUser = this.userLoginRegistration.registerNewUser(inputScanner, database);
         }
         intializeUserRelatedObjects();
     }
