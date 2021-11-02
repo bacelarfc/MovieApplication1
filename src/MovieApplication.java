@@ -20,7 +20,7 @@ public class MovieApplication implements Serializable {
 
     public MovieApplication(InformationalDatabase iDatabase) {
         this.inputScanner = new Scanner(System.in);
-        this.database = new InformationalDatabase();
+        this.database = iDatabase;
         this.activeUser = new User();
         this.userLoginRegistration = new UserLoginRegistration(database);
         this.userLoginRegistration.readUsersFromFile(USER_FILE_NAME);
@@ -52,6 +52,9 @@ public class MovieApplication implements Serializable {
     //If String variable userChoice equals y: it will loop database which contains user ArrayList,
     // and check if username and password equals to what the active user input.
     //If String variable userChoice
+
+
+
     public void askForCredentials() {
         System.out.println("Are you a registered user or not (Y/N) ?");
         String userChoice = inputScanner.next();
@@ -73,7 +76,6 @@ public class MovieApplication implements Serializable {
         System.out.println("----- Welcome to the MOVIE APPLICATION -----");
         askForCredentials();
         mainMenu();
-
     }
 
     //this method uses a while loop that calls on methods related to the displayed option
@@ -136,7 +138,6 @@ public class MovieApplication implements Serializable {
         ois.close();
 
         MovieApplication movieApplication = new MovieApplication(iDatabase);
-
 
         movieApplication.run();
 

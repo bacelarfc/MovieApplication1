@@ -15,6 +15,8 @@ public class User implements Serializable {
     private List<MovieHistory> movieHistory;
     private List<Statistics> userStatistics;
 
+    private InformationalDatabase database;
+
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
@@ -22,6 +24,7 @@ public class User implements Serializable {
         this.favMovieList = new ArrayList<>();
         this.movieHistory = new ArrayList<>();
         this.userStatistics = new ArrayList<>();
+
     }
 
     // DEFAULT constructor

@@ -9,8 +9,6 @@ public class Movie implements Serializable {
     private String keyWords;
     private ArrayList<Actor> actors;
 
-
-
     public Movie(String title, int prodYear, String keyWords) {
         this.title = title;
         this.prodYear = prodYear;
