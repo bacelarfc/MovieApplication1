@@ -1,5 +1,4 @@
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -48,7 +47,7 @@ MovieSearch {
 
 //a method to process the movie result from the search, pass the arraylist of movies
 
-    private void processMovieResult(ArrayList<Movie> movieArrayList) {
+    private void processSearchResult(ArrayList<Movie> movieArrayList) {
         System.out.println(" --- SEARCH RETURNED " + movieArrayList.size() + " RESULT: --- ");
         for (Movie movie : movieArrayList) {
             System.out.println(movie.toString());
@@ -135,7 +134,7 @@ MovieSearch {
             if (movie.getTitle().contains(title)) {
                 ArrayList<Movie> resultList = new ArrayList<>();
                 resultList.add(movie);
-                processMovieResult(resultList);
+                processSearchResult(resultList);
                 return;
             }
         }
@@ -153,7 +152,7 @@ MovieSearch {
                 resultList.add(movie);
             }
         }
-        processMovieResult(resultList);
+        processSearchResult(resultList);
 
     }
 
@@ -164,12 +163,12 @@ MovieSearch {
         for (Movie movie : database.getMovies()) {
             ArrayList<Actor> actorArrayList = movie.getActors();
             for (Actor actor : actorArrayList) {
-                if (actor.getFullName().equals(actorName)) {
+                if (actor.getFullName().contains(actorName)) {
                     resultList.add(movie);
                 }
             }
         }
-        processMovieResult(resultList);
+        processSearchResult(resultList);
 
     }
 
@@ -183,7 +182,7 @@ MovieSearch {
 
             }
 
-            processMovieResult(resultList);
+            processSearchResult(resultList);
         }
 
         System.out.println(" *** SEARCH DIDN'T RETURN ANY RESULT, RETURNING TO MAIN MENU *** ");

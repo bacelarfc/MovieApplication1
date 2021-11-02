@@ -84,7 +84,7 @@ public class MovieApplication implements Serializable {
         try {
             //CHECK CHOICE AND LOGIC (?
             //why does it return to the main menu
-            //when it gets to 5 should not go into the loop(?
+            //when it gets to 5 should not go into the loop?
             while (userMenuChoice != 5) {
                 displayMenu();
                 userMenuChoice = inputScanner.nextInt();
