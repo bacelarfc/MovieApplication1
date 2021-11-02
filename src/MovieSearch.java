@@ -1,27 +1,30 @@
+import models.*;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class MovieSearch {
 
-    private InformationalDatabase database;
+    private Cinema database;
     private Scanner inputScanner;
     private User activeUser;
     private static final String MOVIE_RECORDS_FILE = "movie-records.txt";
 
 
     //parameters to:
-    public MovieSearch(InformationalDatabase IDatabase, Scanner inputScanner, User activeUser) {
+    public MovieSearch(Cinema IDatabase, Scanner inputScanner, User activeUser) {
         this.database = IDatabase;
         this.inputScanner = inputScanner;
         this.activeUser = activeUser;
     }
 
-    public void searchForMovie() {
+    public List<Movie> searchForMovie(Cinema cinemaDb, String searchInputMovieName) {
         System.out.println("Pick one criteria to search by");
         System.out.println("Press 1 for searching by title");
         System.out.println("Press 2 for searching by production year");
@@ -45,6 +48,7 @@ public class MovieSearch {
                 System.out.println(" *** INVALID INPUT, RETURNING TO MAIN MENU ***");
                 break;
         }
+        return null;
     }
 
 
@@ -84,7 +88,7 @@ public class MovieSearch {
                 //relate the user to access the movie history
                 //add a date to it. (?
                 //save the info to user file(?
-                //activeUser.getMovieHistory().add(new MovieHistory(movieChoice, Date.from(Instant.now()), activeUser));
+                //activeUser.getMovieHistory().add(new Models.MovieHistory(movieChoice, Date.from(Instant.now()), activeUser));
 
                 MovieHistory history = new MovieHistory(movieChoice, Date.from(Instant.now()), activeUser);
                 activeUser.getMovieHistory().add(history);

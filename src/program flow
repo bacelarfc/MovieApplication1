@@ -1,5 +1,5 @@
 Program starts
-User sees a message that says "Welcome to the XXX application"
+models.User sees a message that says "Welcome to the XXX application"
 They are asked a question -> are you a user? -> yes
  Then they see a message asking for the user info
  If --> no - then they see information to have them registered
@@ -18,7 +18,7 @@ If user selects 1, the following is displayed:
  The app prints a message, such as
    "Search for a movie based on one of the following:
       1. Title
-      2. Actor
+      2. models.Actor
       3. Production year
       ...
 

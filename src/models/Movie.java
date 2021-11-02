@@ -1,6 +1,7 @@
+package models;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Movie implements Serializable {
 
@@ -45,7 +46,6 @@ public class Movie implements Serializable {
         actors.add(actorToAdd);
     }
 
-
     public String getKeyWords() {
         return keyWords;
     }
@@ -57,11 +57,6 @@ public class Movie implements Serializable {
 
     @Override
     public String toString() {
-        /*String listOfActors = " ";
-        for(Actor actor : actors){
-            listOfActors = listOfActors + actor.toString();
-        }*/
-
         return "Title: " + this.title + ",\nProduction year: " + this.prodYear + "\nKeywords: " + this.keyWords;
     }
 }

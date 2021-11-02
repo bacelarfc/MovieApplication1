@@ -1,21 +1,19 @@
+package models;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class User implements Serializable {
-
-    //User class has:
+    //Models.User class has:
 
     private String name;
     private String email;
     private String password;
     //associate a favMovieList that contains movie objects here
     private List<Movie> favMovieList;
-    //associate movieHistory that it's contained inside MovieHistory class, so each user has a movie history record.
+    //associate movieHistory that it's contained inside Models.MovieHistory class, so each user has a movie history record.
     private List<MovieHistory> movieHistory;
-    private List<Statistics> userStatistics;
-
-    private InformationalDatabase database;
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -23,8 +21,7 @@ public class User implements Serializable {
         this.password = password;
         this.favMovieList = new ArrayList<>();
         this.movieHistory = new ArrayList<>();
-        this.userStatistics = new ArrayList<>();
-
+        // this.userStatistics = new ArrayList<>();
     }
 
     // DEFAULT constructor
@@ -33,22 +30,7 @@ public class User implements Serializable {
         this.password = "";
         this.name = "";
         this.favMovieList = new ArrayList<>();
-    }
-
-    //String fileName = "file.ser"; - do we need this?
-    public static long writeObjectToFile() throws IOException {
-        File file = new File("databaseFile.ser");
-        try {
-            InformationalDatabase database = new InformationalDatabase();
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(database);
-            oos.flush();
-            fos.close();
-            oos.close();
-        } catch (IOException e) {
-            System.out.println("COULDN'T READ FROM FILE");
-        } //return what? ;
+        this.movieHistory = new ArrayList<>();
     }
 
     public String getName() {
@@ -89,14 +71,6 @@ public class User implements Serializable {
 
     public void setMovieHistory(List<MovieHistory> movieHistory) {
         this.movieHistory = movieHistory;
-    }
-
-    public List<Statistics> getUserStatistics() {
-        return userStatistics;
-    }
-
-    public void setUserStatistics(List<Statistics> userStatistics) {
-        this.userStatistics = userStatistics;
     }
 
     @Override

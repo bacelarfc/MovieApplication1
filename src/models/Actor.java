@@ -1,8 +1,10 @@
+package models;
+
 import java.io.Serializable;
 
 public class Actor implements Serializable {
 
-    //Actor class:
+    //Models.Actor class:
     // 2 parameters: name and role
 
     private String fullName;
