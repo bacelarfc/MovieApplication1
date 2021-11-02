@@ -12,10 +12,10 @@ public class UserLoginRegistration implements Serializable {
     }
 
     //method that return User object to register new User
-    //use scanner as paremeter as well the filename;
+    //use scanner as parameter as well the filename;
     //Create a new user object with the information collected
-    //Check if user its unique by using the boolean method, set it to true so we can verify if name already exists
-    //if it doesnt exist I call the method saveUser and input a new user
+    //Check if user it's unique by using the boolean method, set it to true, so we can verify if name already exists
+    //if it doesn't exist I call the method saveUser and input a new user
 
 
     public User registerNewUser(Scanner inputScanner, String fileName) {

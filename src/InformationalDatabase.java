@@ -7,7 +7,7 @@ public class InformationalDatabase implements Serializable {
     private ArrayList<Movie> movies;
     private ArrayList<User> users;
 
-    //call the initilize movie list inside so it can get initilized by the contructor
+    //call the initialized movie list inside, so it can get initialized by the constructor
     public InformationalDatabase() {
         this.movies = new ArrayList<>();
         this.users = new ArrayList<>();
